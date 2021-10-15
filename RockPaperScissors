@@ -1,0 +1,64 @@
+const getUserChoice = userInput => {
+    userInput = userInput.toLowerCase();
+    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+      return userInput;
+    }
+    else if (userInput === 'bomb') {
+      return userInput;
+    }
+    else console.log('Error. Invalid input');
+  } //makes user choice case insensitive
+  
+  
+  function getComputerChoice() {
+   const randN = Math.floor(Math.random() * 3);
+   if (randN === 0) {
+     return 'rock';
+   }
+   else if (randN === 1) {
+     return 'paper';
+   }
+   else if (randN === 2) {
+     return 'scissors';
+   }
+  }
+  
+  function determineWinner(userChoice, computerChoice) {
+    if (userChoice === computerChoice){
+      return 'Tie game!'
+    }
+    else if (userChoice === 'rock') {
+      if (computerChoice === 'paper') {
+        return 'Computer won!';
+      }
+      else return 'User won!';
+    }
+    else if (userChoice === 'paper'){
+      if (computerChoice === 'rock'){
+        return 'User won!';
+      }
+      else return 'Computer won!';
+      }
+    else if (userChoice === 'scissors'){
+      if (computerChoice === 'paper'){
+        return 'User won!';
+      }
+      else return 'Computer won!';
+    }
+    else if (userChoice === 'bomb'){
+      return 'Cheat code activated. BOOM. User won... but at what cost...';
+    }
+    }
+  
+  function playGame() {
+    const userChoice = getUserChoice('bomb')
+    const computerChoice = getComputerChoice()
+    console.log(`User chooses ${userChoice} and Computer chooses ${computerChoice}`)
+    console.log(determineWinner(userChoice, computerChoice))
+  }
+  
+  playGame()
+  
+  
+  
+  
